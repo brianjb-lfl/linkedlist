@@ -1,0 +1,23 @@
+{
+  "name": "nov9-linked-list-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "linkedlist.js",
+  "dependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianjb-lfl/linkedlist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianjb-lfl/linkedlist/issues"
+  },
+  "homepage": "https://github.com/brianjb-lfl/linkedlist#readme"
+}
