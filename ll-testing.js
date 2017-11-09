@@ -11,55 +11,59 @@ ourList.insert(ourList.length-1, 'second-last');
 ourList.remove(2);
 ourList.insert(1, 'another item');
 ourList.remove(ourList.length - 1);
+ourList.insert(0, 'new item');
 
-// for(let i = 0; i < ourList.length; i++) {
-//   console.log(`item ${i}:  ${ourList.get(i)}`);
-// }
+PrintList(ourList);
+console.log(size(ourList));
+console.log(findLast(ourList));
 
-// console.log(ourList.get(0));
-// console.log(`head: ${ourList.head.value},  length: ${ourList.length}`);
-//console.log(ourList.head);
-
-
-function PrintList(){
-  const result = []; 
-  for(let i = 0; i < ourList.length; i++) {
-    result.push(ourList.get(i));
+function PrintList(listIn){
+  let current = listIn.head;
+  if(!current) {
+    return 0; 
   }
-  return result; 
+  while(current.next !== null) {
+    console.log(current.value); 
+    current = current.next;
+  }
+  console.log(current.value); 
 }
 
-function size() {
-  let current = ourList.head; 
+function size(listIn) {
+  let current = listIn.head; 
   let counter = 1; 
   if(!current) {
     return 0; 
   }
   while(current.next !== null) {
     counter++; 
-    current = current.next
+    current = current.next;
   }
   return counter; 
 }
 
-function isEmpty() { 
-  if(!ourList.head) {
+function isEmpty(listIn) { 
+  if(!listIn.head) {
     return true; 
   }
   return false; 
 }
 
-function findPrevious(index) {
-  return ourList.get(index - 1)
+function findPrevious(listIn, index) {
+  return listIn.get(index - 1);
 }
 
-function findLast() {
-  return PrintList()[PrintList().length -1]; 
+function findLast(listIn) {
+  let current = listIn.head; 
+  //let counter = 0; 
+  if(!current) {
+    return 0; 
+  }
+  while(current.next !== null) {
+    current = current.next;
+  }
+  return (current.value);
+  //return PrintList(listIn)[PrintList(listIn).length -1]; 
 }
 
 
-console.log(findLast()); 
-console.log(findPrevious(2)); 
-console.log(isEmpty()); 
-console.log(PrintList()); 
-console.log(size()); 
