@@ -20,10 +20,12 @@ function PrintList(listIn){
     return 0; 
   }
   while(current.next !== null) { 
-    console.log(current.value); 
+    console.log(current.value);
+    console.log(current) 
     current = current.next;
   }
   console.log(current.value); 
+  console.log(current) 
 }
 
 
@@ -84,8 +86,54 @@ function reverseList(listIn) {
   return newList;  
 }
 
-console.log("--------BEFORE-----------"); 
-PrintList(exList); 
-console.log("--------AFTER-----------"); 
-PrintList(reverseList(exList)); 
+// console.log("--------BEFORE-----------"); 
+// PrintList(exList); 
+// console.log("--------AFTER-----------"); 
+// PrintList(reverseList(exList)); 
 
+
+// ***** EXERCISE 6:  CYCLE LIST
+
+let cycleList = new LinkedList();
+cycleList.insert(0, 'fifth');
+cycleList.insert(0, 'fourth');
+cycleList.insert(0, 'third');
+cycleList.insert(0, 'second');
+cycleList.insert(0, 'first');
+
+function createCycleItem(list) {
+  const oldList = list; 
+  let curr = oldList.head;
+  let firstNextVal; 
+  for(let i = 0; i < 4; i++) {
+    curr = curr.next; 
+    if(i === 1) {
+      firstNextVal = curr.next; 
+    }
+  }
+  curr.next = firstNextVal;
+  return oldList;  
+}
+
+function isCycle(list) {
+  let slow = list.head; 
+  let fast = list.head;  
+  let curr = list.head;
+  if(!curr) {
+    return false;
+  }
+  if(curr.next === list.head) return true;
+  while(fast.next.next) { 
+    slow = slow.next; 
+    fast = fast.next.next; 
+    if(slow=== fast) return true
+  }  
+  return false; 
+}
+
+// createCycleItem(cycleList)
+// console.log(createCycleItem(cycleList)); 
+// console.log(isCycle(exList)); 
+
+
+// ***** EXERCISE 7:  CYCLE LIST
