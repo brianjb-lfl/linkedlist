@@ -13,6 +13,7 @@ class LinkedList {
     
     return this._find(index).value;
   }
+  
 
   insert(index, value) {
     if (index < 0 || index > this.length) {
