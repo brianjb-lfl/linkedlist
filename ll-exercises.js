@@ -67,21 +67,31 @@ function findMiddle(listIn) {
 function thirdLast(listIn) {
   const llSize = size(listIn);
   if(llSize < 3) {
-    return 'No item found'
+    return 'No item found';
   }
-  return listIn.get(llSize - 3)
+  return listIn.get(llSize - 3);
 }
 
 // console.log(thirdLast(exList))
 
 // ***** EXERCISE 5:  REVERSE LINKED LIST
 
+// function reverseList(listIn) {
+//   const newList = new LinkedList(); 
+//   let curr = listIn.head;
+//   while(curr) { 
+//     newList.insert(0, curr.value); 
+//     curr = curr.next;
+//   }
+//   return newList;  
+// }
+
+// ***** REVERSE v 2
+
 function reverseList(listIn) {
   const newList = new LinkedList(); 
-  let curr = listIn.head;
-  while(curr) { 
+  for(let curr = listIn.head; curr; curr = curr.next) { 
     newList.insert(0, curr.value); 
-    curr = curr.next;
   }
   return newList;  
 }
@@ -126,14 +136,23 @@ function isCycle(list) {
   while(fast.next.next) { 
     slow = slow.next; 
     fast = fast.next.next; 
-    if(slow=== fast) return true
+    if(slow=== fast) return true;
   }  
   return false; 
 }
 
-// createCycleItem(cycleList)
-// console.log(createCycleItem(cycleList)); 
-// console.log(isCycle(exList)); 
+createCycleItem(cycleList);
+console.log(createCycleItem(cycleList));
+console.log(cycleList);
+
+let node = cycleList.head;
+console.log(node);
+for (let range = 0; range < 6; range++) {
+  node = node.next; 
+  console.log(node);
+}
+
+//console.log(isCycle(exList)); 
 
 
 // ***** EXERCISE 7:  CYCLE LIST

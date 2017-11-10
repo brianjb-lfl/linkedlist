@@ -32,7 +32,7 @@ class LinkedList {
     }
     else {
       const node = this._find(index - 1);
-      const nextNode = this._find(index);
+      const nextNode = node.next;
       newNode.next = node.next;
       newNode.previous = node; 
       node.next = newNode;
@@ -53,7 +53,7 @@ class LinkedList {
     }
     else {
       const node = this._find(index - 1);
-      const nextNode = this._find(index + 1);
+      const nextNode = node.next.next;
       node.next = node.next.next;
       nextNode.previous = node; 
     }
